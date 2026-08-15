@@ -561,30 +561,4 @@ export default function App() {
   );
 }
 
-// ── iCal parser (module-level so WeekView can use it) ─────────────────────────
 
-function parseICal(text) {
-  const events = [];
-  const lines = text.replace(/\r\n /g,"").replace(/\r\n\t/g,"").split(/\r\n|\n|\r/);
-  let current = null;
-  for (const line of lines) {
-    if (line==="BEGIN:VEVENT") { current={}; }
-    else if (line==="END:VEVENT"&&current) {
-      if(current.date&&current.title) events.push(current);
-      current=null;
-    } else if (current) {
-      if (line.startsWith("SUMMARY:")) current.title=line.replace("SUMMARY:","").trim();
-      else if (line.startsWith("DTSTART")) {
-        const val=line.split(":").slice(1).join(":").trim();
-        const y=val.substring(0,4),m=val.substring(4,6),d=val.substring(6,8);
-        current.date=`${y}-${m}-${d}`;
-        if (val.includes("T")) {
-          const dt=new Date(`${y}-${m}-${d}T${val.substring(9,11)}:${val.substring(11,13)}:00Z`);
-          current.time=`${String(dt.getHours()).padStart(2,"0")}:${String(dt.getMinutes()).padStart(2,"0")}`;
-        }
-      }
-      else if (line.startsWith("LOCATION:")) current.notes=line.replace("LOCATION:","").trim();
-    }
-  }
-  return events;
-}
