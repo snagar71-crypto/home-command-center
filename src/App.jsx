@@ -5,7 +5,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebase.js";
 
-const CALENDAR_EMAIL = "sanmeenal.nagar@gmail.com";
+const CALENDAR_EMAIL = "snagar71@gmail.com";
 const EVENTS_COL = "events";
 
 const PRIORITY_CONFIG = {
