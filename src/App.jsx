@@ -9,7 +9,8 @@ const CALENDAR_EMAIL = "sanmeenal.nagar@gmail.com";
 const EVENTS_COL = "events";
 
 // Neuqua Girls Tennis iCal feed (via CORS proxy)
-const TENNIS_ICAL_URL = "https://corsproxy.io/?url=https://calendar.google.com/calendar/ical/c_classroom0c997a2f%40group.calendar.google.com/public/basic.ics";
+const ICAL_BASE = "https://calendar.google.com/calendar/ical/c_classroom0c997a2f%40group.calendar.google.com/public/basic.ics";
+const TENNIS_ICAL_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(ICAL_BASE)}`;
 
 const PRIORITY_CONFIG = {
   high:   { label: "High",   color: "#E05C3A", bg: "#FEF0EC", dot: "🔴" },
