@@ -453,7 +453,10 @@ export default function App() {
             <h1 style={{margin:0,fontSize:20,fontWeight:800,letterSpacing:"-0.5px"}}>Home Command Center</h1>
             <div style={{fontSize:11,color:"#9090C0",marginTop:3}}>📅 {formatTodayLabel()}</div>
           </div>
-          <button onClick={()=>{setPrefill(null);setModal({});}} style={{background:"#E05C3A",color:"#fff",border:"none",borderRadius:10,padding:"9px 14px",fontWeight:700,fontSize:12,cursor:"pointer",boxShadow:"0 4px 12px rgba(224,92,58,0.4)",whiteSpace:"nowrap"}}>+ Add Event</button>
+          <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap",justifyContent:"flex-end"}}>
+            <a href={`${import.meta.env.BASE_URL}season-map.html`} style={{background:"rgba(255,255,255,0.12)",color:"#fff",border:"1px solid rgba(255,255,255,0.25)",borderRadius:10,padding:"8px 12px",fontWeight:700,fontSize:12,textDecoration:"none",whiteSpace:"nowrap"}}>🔒 Season Map</a>
+            <button onClick={()=>{setPrefill(null);setModal({});}} style={{background:"#E05C3A",color:"#fff",border:"none",borderRadius:10,padding:"9px 14px",fontWeight:700,fontSize:12,cursor:"pointer",boxShadow:"0 4px 12px rgba(224,92,58,0.4)",whiteSpace:"nowrap"}}>+ Add Event</button>
+          </div>
         </div>
 
         <div style={{marginTop:12,background:"rgba(255,255,255,0.08)",borderRadius:8,padding:"7px 12px",fontSize:11,color:"#B0B0D0",display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
